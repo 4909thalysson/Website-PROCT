@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROCT | Tecnologia que protege, organiza e simplifica</title>
+  <meta name="description" content="PROCT transforma segurança em inteligência operacional: gestão de EPIs simples, rastreável e automatizada.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- INICIO: vídeo em tela cheia com o menu sobreposto -->
+  <header class="hero" id="inicio">
+    <h1 class="sr-only">PROCT: tecnologia que protege, organiza e simplifica</h1>
+    <video class="hero__bg" id="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="ASSESTS/inicio video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Menu sobreposto ao vídeo, fixo do início ao fim -->
+    <div class="topbar">
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="nav__brand" href="#inicio" aria-label="PROCT - início">
+          <img src="ASSESTS/PROCT LOGO E NOME.png" alt="PROCT" width="124" height="47">
+        </a>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#inicio">INICIO</a></li>
+          <li><a class="nav__link" href="#proct">PROCT</a></li>
+          <li><a class="nav__link" href="#funcionamento">FUNCIONAMENTO</a></li>
+          <li><a class="nav__link" href="#contato">CONTATO</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Figma: PROCT (28:17) -->
+    <section class="about" id="proct" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="about__title" id="about-title">
+          <strong>Tecnologia que protege,</strong> organiza e simplifica...
+        </h2>
+
+        <div class="about__text">
+          <p>PROCT transforma segurança em inteligência operacional. Nascemos da união entre Segurança do Trabalho e Tecnologia para tornar a gestão de EPIs mais simples, rastreável e automatizada.</p>
+          <p>Do mapeamento dos riscos à entrega do equipamento, o PROCT conecta cada etapa do processo para que a informação certa chegue a quem precisa, quando precisa.</p>
+        </div>
+
+        <ul class="cards">
+          <li class="card">
+            <h3 class="card__title">PROTEÇÃO</h3>
+            <p class="card__text">Cuidado com pessoas antes de qualquer processo.</p>
+          </li>
+          <li class="card">
+            <h3 class="card__title">EFICIÊNCIA</h3>
+            <p class="card__text">Menos etapas, menos papel mais decisão.</p>
+          </li>
+          <li class="card">
+            <h3 class="card__title">CONTROLE</h3>
+            <p class="card__text">Equipamentos controlados e rastreados</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Figma: FUNCIONAMENTO (28:49) -->
+    <section class="how" id="funcionamento" aria-labelledby="how-title">
+      <div class="container container--wide">
+        <h2 class="how__title" id="how-title">O PROCT</h2>
+        <p class="how__subtitle">Explore como o PROCT acompanha cada etapa, do planejamento da atividade ao controle do EPI.</p>
+
+        <div class="how__grid">
+          <figure class="how__card how__card--illustration">
+            <img src="ASSESTS/AI-removebg-preview.png" alt="Ilustração de um assistente de IA com notebook e documentos">
+          </figure>
+
+          <!-- Card giratório: frente = foto, verso = texto sobre o PROCT -->
+          <div class="how__card how__card--flip" id="how-flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Card do PROCT. Toque ou pressione Enter para virar e ler mais.">
+            <div class="how__flip-inner">
+              <div class="how__flip-face how__flip-face--front">
+                <img src="ASSESTS/download.png" alt="Profissional de segurança do trabalho usando um tablet com mapa digital do canteiro de obras">
+              </div>
+              <div class="how__flip-face how__flip-face--back">
+                <p>PROCT é um agente automatizado que conecta atividades e riscos de trabalho ao controle de EPIs, apoiando a gestão, a rastreabilidade e a segurança nas operações.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="how__demo">
+          <p class="how__demo-text">Acompanhe uma demo da aplicação.</p>
+          <button class="btn btn--light" type="button" id="demo-open">Assistir</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal do vídeo de demonstração -->
+    <div class="demo-modal" id="demo-modal" hidden>
+      <div class="demo-modal__backdrop" data-demo-close></div>
+      <div class="demo-modal__panel" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+        <h2 class="sr-only" id="demo-modal-title">Demo da aplicação PROCT</h2>
+        <button class="demo-modal__close" type="button" data-demo-close aria-label="Fechar vídeo">×</button>
+        <video class="demo-modal__video" id="demo-video" controls playsinline>
+          <source src="ASSESTS/demo-proct.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+      </div>
+    </div>
+
+    <!-- Figma: Desktop - 4 (41:10) -->
+    <section class="contact" id="contato" aria-labelledby="contact-title">
+      <div class="container container--form">
+        <h2 class="contact__title" id="contact-title">Curioso ?</h2>
+        <p class="contact__subtitle">Entre em contato e converse com a equipe !</p>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="nome">Nome:</label>
+            <input class="field__control" type="text" id="nome" name="nome" autocomplete="name" required>
+            <span class="field__error" data-error-for="nome" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">Email:</label>
+            <input class="field__control" type="email" id="email" name="email" autocomplete="email" required>
+            <span class="field__error" data-error-for="email" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="telefone">Telefone:</label>
+            <input class="field__control" type="tel" id="telefone" name="telefone" autocomplete="tel">
+            <span class="field__error" data-error-for="telefone" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="mensagem">Mensagem:</label>
+            <textarea class="field__control field__control--textarea" id="mensagem" name="mensagem" rows="5" required></textarea>
+            <span class="field__error" data-error-for="mensagem" role="alert"></span>
+          </div>
+
+          <button class="btn" type="submit">Conversar</button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>

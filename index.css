@@ -1,0 +1,522 @@
+/* ==========================================================
+   PROCT - Landing page (Figma: ProtótipoControlEpi)
+   ========================================================== */
+
+:root {
+  --navy: #010d20;
+  --teal: #28f1bb;
+  --white: #ffffff;
+  --black: #000000;
+
+  --font: 'Barlow Condensed', sans-serif;
+
+  --radius-nav: 15px;
+  --radius-card: 20px;
+  --radius-btn: 10px;
+
+  --nav-h: 152px; /* altura aproximada do menu fixo: padding-top (40) + pill (96) + folga */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h); /* âncoras do menu não ficam escondidas atrás dele */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--navy);
+  background: var(--white);
+  line-height: 1.2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, p, figure {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: min(100% - 48px, 1176px);
+  margin-inline: auto;
+}
+
+.container--wide { width: min(100% - 48px, 1260px); }
+.container--form { width: min(100% - 48px, 659px); }
+
+/* ---------- Topbar / nav ----------
+   Fixo desde o início, sobreposto ao vídeo. Some ao rolar para baixo
+   e volta a aparecer ao rolar para cima (ver .topbar--hidden e index.js). */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px 0;
+  background: transparent; /* deixa o vídeo aparecer atrás do menu */
+  transform: translateY(0);
+  transition: transform 0.35s ease;
+}
+
+.topbar--hidden {
+  transform: translateY(-130%);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: min(100%, 1041px);
+  height: 96px;
+  padding-inline: 33px;
+  background: var(--navy);
+  border-radius: var(--radius-nav);
+}
+
+.nav__brand img {
+  height: 47px;
+  width: auto;
+}
+
+.nav__list {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  gap: 24px;
+}
+
+.nav__link {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible,
+.nav__link.is-active {
+  color: var(--teal);
+}
+
+/* ---------- Hero (INICIO) ----------
+   Vídeo em tela cheia; o menu fica sobreposto a ele (veja .topbar). */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Sobre (PROCT) ---------- */
+
+.about {
+  padding-block: calc(80px + var(--nav-h)) 56px; /* compensa o menu fixo por cima */
+  background: var(--white);
+}
+
+.about__title {
+  font-size: 65px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.about__title strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.about__text {
+  margin-top: 60px;
+  display: grid;
+  gap: 35px;
+  font-size: 35px;
+  color: var(--navy);
+}
+
+.cards {
+  margin-top: 90px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.card {
+  flex: 0 1 334px;
+  min-height: 363px;
+  padding: 30px 19px 40px;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.card__title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.card__text {
+  margin-top: 78px;
+  padding-inline: 14px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+/* ---------- Funcionamento (O PROCT) ---------- */
+
+.how {
+  min-height: 100vh;
+  padding-block: 83px 80px;
+  background: var(--navy);
+}
+
+.how__title {
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--teal);
+}
+
+.how__subtitle {
+  margin-top: 16px;
+  max-width: 640px;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.how__grid {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 390fr 813fr;
+  gap: 56px;
+}
+
+.how__card {
+  height: 454px;
+  border: 5px solid var(--teal);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.how__card--illustration {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--white);
+}
+
+.how__card--illustration img {
+  width: 293px;
+  height: 266px;
+  object-fit: contain;
+}
+
+.how__card--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Card giratório (frente: foto / verso: texto) ---------- */
+
+.how__card--flip {
+  position: relative;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.how__card--flip:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+
+.how__flip-inner {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.how__card--flip.is-flipped .how__flip-inner {
+  transform: rotateY(180deg);
+}
+
+.how__flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.how__flip-face--front img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how__flip-face--back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: var(--white);
+}
+
+.how__flip-face--back p {
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--navy);
+  text-align: center;
+}
+
+/* ---------- Demo da aplicação ---------- */
+
+.how__demo {
+  margin-top: 56px;
+  text-align: center;
+}
+
+.how__demo-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.btn--light {
+  margin-top: 20px;
+  background: var(--white);
+  color: var(--navy);
+}
+
+/* ---------- Modal do vídeo de demonstração ---------- */
+
+.demo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.demo-modal[hidden] {
+  display: none;
+}
+
+.demo-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(1, 13, 32, 0.85);
+}
+
+.demo-modal__panel {
+  position: relative;
+  width: min(100%, 960px);
+  background: var(--black);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.demo-modal__video {
+  display: block;
+  width: 100%;
+  max-height: 80vh;
+}
+
+.demo-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.demo-modal__close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- Contato ---------- */
+
+.contact {
+  padding-block: 125px 100px;
+  background: var(--white);
+  text-align: center;
+}
+
+.contact__title {
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.contact__subtitle {
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.form {
+  margin-top: 60px;
+  display: grid;
+  gap: 28px;
+  text-align: left;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field__label {
+  padding-left: 26px;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.field__control {
+  width: 100%;
+  height: 54px;
+  padding: 0 20px;
+  font-family: var(--font);
+  font-size: 22px;
+  color: var(--navy);
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field__control--textarea {
+  height: 144px;
+  padding-block: 12px;
+  resize: vertical;
+}
+
+.field__control:focus-visible {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(40, 241, 187, 0.35);
+}
+
+.field.has-error .field__control {
+  border-color: #d93025;
+}
+
+.field__error {
+  min-height: 1em;
+  padding-left: 26px;
+  font-size: 18px;
+  color: #d93025;
+}
+
+.btn {
+  justify-self: center;
+  width: 230px;
+  height: 50px;
+  margin-top: 20px;
+  font-family: var(--font);
+  font-size: 25px;
+  font-weight: 300;
+  color: var(--navy);
+  background: var(--teal);
+  border: 0;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover { filter: brightness(0.95); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+.form__status {
+  min-height: 1.2em;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1100px) {
+  .nav__link { font-size: 26px; }
+  .about__title { font-size: 52px; }
+  .about__text { font-size: 28px; }
+  .cards { flex-wrap: wrap; justify-content: center; }
+  .how__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --nav-h: 128px; /* menu vira coluna e fica mais baixo no padding, mas mais alto por conta do wrap */
+  }
+
+  .topbar { padding-top: 16px; }
+  .nav {
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+  .nav__list { flex-wrap: wrap; justify-content: center; gap: 4px 20px; }
+  .nav__link { font-size: 24px; }
+  .about { padding-top: calc(24px + var(--nav-h)); }
+  .about__title { font-size: 40px; }
+  .about__text { font-size: 22px; }
+  .how__title, .contact__title { font-size: 44px; }
+  .how__grid { margin-top: 60px; }
+  .how__card { height: 320px; }
+}
